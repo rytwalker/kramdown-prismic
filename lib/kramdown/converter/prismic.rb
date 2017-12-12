@@ -1,5 +1,3 @@
-require 'kramdown/converter/base'
-
 module Kramdown
   module Converter
     class Prismic < Base
