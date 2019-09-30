@@ -179,6 +179,11 @@ module Kramdown
         # send("convert_p", "<p>#{element}</p>")
       end
 
+      def convert_strong(element)
+        warning('translating strong is not supported')
+        nil
+      end
+
       def extract_content(element, memo={text: '', spans: []})
         element.children.inject(memo) do |memo2, child|
           send("extract_span_#{child.type}", child, memo2)
