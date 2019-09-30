@@ -168,14 +168,18 @@ module Kramdown
         nil
       end
 
-      def convert_a(element)
+      def convert_br(element)
         warning('translating raw is not supported')
         nil
       end
 
+      def convert_a(element)
+        send("convert_p", "<p>#{element}</p>")
+      end
+
       def extract_content(element, memo={text: '', spans: []})
         element.children.inject(memo) do |memo2, child|
-          send("extract_span_#{child.type}", child, memo2)
+          send("extract_span_#{child.tpkype}", child, memo2)
           memo2
         end
       end
