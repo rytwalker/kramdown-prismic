@@ -164,17 +164,19 @@ module Kramdown
       end
 
       def convert_text(element)
-        warning('translating raw is not supported')
+        warning('translating plain text is not supported')
         nil
       end
 
       def convert_br(element)
-        warning('translating raw is not supported')
+        warning('translating br is not supported')
         nil
       end
 
       def convert_a(element)
-        send("convert_p", "<p>#{element}</p>")
+        warning('translating a tag is not supported')
+        nil
+        # send("convert_p", "<p>#{element}</p>")
       end
 
       def extract_content(element, memo={text: '', spans: []})
